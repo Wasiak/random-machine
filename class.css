@@ -1,0 +1,36 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#main-container {
+  display: block;
+  width: 900px;
+  height: 600px;
+  margin: auto;
+  margin-top: 60px;
+  box-sizing: border-box;
+  position: relative;
+  background-color: #ccc;
+  padding: 20px;
+}
+
+#results {
+  margin-top: 20px;
+  border-top: 2px dotted;
+  min-height: 10px;
+  padding-top: 20px;
+}
+
+p {
+  margin: 10px 0;
+}
+
+span {
+  width: 70px;
+  display: inline-block;
+}
+
+span:nth-child(2) {
+  padding-left: 10px;
+}
