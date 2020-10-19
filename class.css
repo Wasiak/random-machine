@@ -9,21 +9,20 @@ body {
   align-items: center;
   justify-content: center;
   font-family: arial;
-  background-image: url(background.jpg) ;
- 
+  background-image: url(background.jpg) ; 
 }
+
 #main-container {
   display: block;
   width: 90%;
   max-width: 800px;
-  /* min-height: 80vh; */
   border-radius: 10px;
   padding: 20px; 
   margin-top: 30px;
- background-color: white;
+  background-color: white;
   -webkit-box-shadow: 3px 3px 5px 6px #ccc;  
-  -moz-box-shadow:    3px 3px 5px 6px #ccc; 
-  box-shadow:         3px 3px 5px 6px #ccc; 
+  -moz-box-shadow:  3px 3px 5px 6px #ccc; 
+  box-shadow: 3px 3px 5px 6px #ccc; 
 }
 
 .form {
@@ -32,17 +31,13 @@ body {
   grid-template-columns: minmax(80px, 300px) minmax(120px, 160px);
   padding: 20px 10px ;
   border-radius: 10px;
-  /* background-color: white;
-  -webkit-box-shadow: 3px 3px 5px 6px #ccc;  
-  -moz-box-shadow:    3px 3px 5px 6px #ccc; 
-  box-shadow:         3px 3px 5px 6px #ccc;  */
 }
 
 .form__input {
   align-self: center;
   padding-left: 5px;
- font-size: 16px;
- height: 80%;
+  font-size: 16px;
+  height: 80%;
 }
 
 .button {
@@ -61,7 +56,6 @@ body {
 
 .button:hover {
   background-color: #f50202;
-
 }
 
 .info-container {
@@ -79,16 +73,15 @@ body {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 20px;
-
 }
 
 .users__acapit {
- margin: 5px;
- padding: 5px;
- text-transform: capitalize;
- border: 1px solid#f50202;
- border-radius: 5px;
- color: #1dad13;
+  margin: 5px;
+  padding: 5px;
+  text-transform: capitalize;
+  border: 1px solid#f50202;
+  border-radius: 5px;
+  color: #1dad13;
 }
 
 
@@ -101,10 +94,10 @@ body {
 }
 
 .results__acapit{
-display: grid;
-grid-template-columns:  100px 40px 40px 1fr;
-text-transform: capitalize;
-font-weight: bold;
+  display: grid;
+  grid-template-columns:  100px 40px 40px 1fr;
+  text-transform: capitalize;
+  font-weight: bold;
 }
 
 img {
@@ -114,8 +107,3 @@ img {
 p {
   margin: 10px 0;
 }
-
-span {
-  /* display: inline-block; */
-}
-

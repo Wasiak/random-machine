@@ -1,18 +1,13 @@
-
-
 var items = [];
 
 items = [];
 
 var results;
 
-
 let form = document.getElementById('form')
 let users = document.getElementById('users')
 let infoContainer = document.getElementById('info-container')
 let info = document.createElement('p')
-
-
 
 const refreshUsers = () => {
   users.innerHTML = ""
@@ -26,18 +21,18 @@ const refreshUsers = () => {
 }
 
 const addUser = (e) =>{
-e.preventDefault()
-let input = document.getElementById('form-input')
-let inputValue = input.value
+  e.preventDefault()
+  let input = document.getElementById('form-input')
+  let inputValue = input.value
 
-if (inputValue.length >2) {
-  items.push(inputValue)
-refreshUsers()
-} else {
-info.innerHTML = "please text more than 2 signs"
-infoContainer.appendChild(info)
-}
-input.value= ""
+  if (inputValue.length >2) {
+    items.push(inputValue)
+    refreshUsers()
+  } else {
+    info.innerHTML = "please text more than 2 signs"
+    infoContainer.appendChild(info)
+  }
+  input.value= ""
 }
 
 var draw = function(items, current) {
