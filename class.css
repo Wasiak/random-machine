@@ -26,26 +26,38 @@ body {
 }
 
 .form {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  grid-template-columns: minmax(80px, 300px) minmax(120px, 160px);
+  align-items: center;
   padding: 20px 10px ;
-  border-radius: 10px;
+}
+
+.input {
+  align-self: center;
+  justify-self: center;
+  padding-left: 5px;
+  font-size: 16px;
+  margin:5px;
+  padding: 3px;
 }
 
 .form__input {
-  align-self: center;
-  padding-left: 5px;
-  font-size: 16px;
-  height: 80%;
+  flex-grow: 5;
+}
+
+.form__input-type {
+  width: 50px;
+  flex-grow: 1;
 }
 
 .button {
-  padding: 10px 30px;
+  padding: 0 30px;
+  margin: 0 10px;
+  height: 35px;
   cursor: pointer;
   text-transform: uppercase;
   background-color:#1dad13 ;
-  margin: 0 10px;
   border:none;
   border-radius: 5px;
   transition: .4s;
@@ -75,15 +87,28 @@ body {
   margin-bottom: 20px;
 }
 
-.users__acapit {
+.users__name {
+  display: flex;
   margin: 5px;
   padding: 5px;
   text-transform: capitalize;
   border: 1px solid#f50202;
   border-radius: 5px;
   color: #1dad13;
+  font-weight: bold;
 }
 
+.users__type {
+  display: inline-block;
+  color: white;
+  margin-left: 5px;
+  padding: 3px;
+  background-color: #f50202;
+  border-radius: 5px;
+  font-weight: normal;
+  font-size: 10px;
+  text-transform: none;
+}
 
 .results {
   margin-top: 20px;
@@ -95,7 +120,8 @@ body {
 
 .results__acapit{
   display: grid;
-  grid-template-columns:  100px 40px 40px 1fr;
+  grid-template-columns:  120px 40px 40px 1fr;
+  font-size: 14px;
   text-transform: capitalize;
   font-weight: bold;
 }
