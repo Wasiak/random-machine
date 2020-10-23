@@ -1,8 +1,5 @@
-var items = [];
-
-items = [];
-
-var results;
+let items = [];
+let results =[];
 
 let form = document.getElementById('form')
 let users = document.getElementById('users')
@@ -12,10 +9,10 @@ let info = document.createElement('p')
 const refreshUsers = () => {
   users.innerHTML = ""
   infoContainer.innerHTML =""
-  items.map(item => {
+  items.map(({value,type}) => {
     const user= document.createElement('p')
-    user.classList.add('users__acapit')
-    user.innerHTML = item
+    user.classList.add('users__name')
+    user.innerHTML = type? `${value}<span class="users__type">${type}</span>` : value
     users.appendChild(user)
   })
 }
@@ -24,22 +21,30 @@ const addUser = (e) =>{
   e.preventDefault()
   let input = document.getElementById('form-input')
   let inputValue = input.value
+  let inputType = document.querySelector('.form__input-type')
+  let inputTypeValue = inputType.value
+
+
 
   if (inputValue.length >2) {
-    items.push(inputValue)
+    item = {'value': inputValue, 'type': inputTypeValue}
+    items.push(item)
     refreshUsers()
+    
   } else {
     info.innerHTML = "please text more than 2 signs"
     infoContainer.appendChild(info)
   }
   input.value= ""
+  inputType.value=""
 }
 
 var draw = function(items, current) {
   var result = items[~~(Math.random()* items.length)];
-  if (result === current && items.length > 1) {
+  
+  if (items.length > 1 && (result === current || result.type && result.type === current.type)) {
     result = draw(items, current);
-  } else if (result === current && items.length <= 1) {
+  } else if ( items.length <= 1  && (result === current || result.type && result.type === current.type )){
     result = 'drawAllAgain';
   }
   return result;
@@ -49,6 +54,7 @@ var drawAll = function () {
   var allItems = items.slice();
   var allItemsToDraw = items.slice();
   var currentResults = [];
+
   allItems.forEach(function(item) {
     var result = draw(allItemsToDraw, item);
     var index = allItemsToDraw.indexOf(result);
@@ -66,7 +72,7 @@ var drawAll = function () {
   var displayResults = '';
   
   allItems.forEach(function(elem , index) {
-    displayResults += `<p class="results__acapit"><span>${elem}</span><img src="present.svg" alt="present"><img src="arrow.svg" alt="arrow"><span> ${results[index]}</span></p>`;
+    displayResults += `<p class="results__acapit"><span>${elem.value}(${elem.type})</span><img src="present.svg" alt="present"><img src="arrow.svg" alt="arrow"><span> ${results[index].value}(${results[index].type})</span></p>`;
   });
   resultContainer.innerHTML = displayResults;
 }
