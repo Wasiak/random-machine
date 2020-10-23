@@ -40,6 +40,7 @@ const addUser = (e) =>{
 }
 
 var draw = function(items, current) {
+  
   var result = items[~~(Math.random()* items.length)];
   
   if (items.length > 1 && (result === current || result.type && result.type === current.type)) {
@@ -53,8 +54,17 @@ var draw = function(items, current) {
 var drawAll = function () {
   var allItems = items.slice();
   var allItemsToDraw = items.slice();
-  var currentResults = [];
+  var currentResults = []; 
+  const firstType = allItems[0].type
+  let sameTypes =false
 
+  firstType && ((allItems.filter(({type}) => type===firstType)).length) === allItems.length && (sameTypes=true)
+
+  if(sameTypes){
+    info.innerHTML = "all types are the same, can't draw!";
+  infoContainer.appendChild(info)
+return}
+    
   allItems.forEach(function(item) {
     var result = draw(allItemsToDraw, item);
     var index = allItemsToDraw.indexOf(result);
