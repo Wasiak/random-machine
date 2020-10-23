@@ -72,7 +72,12 @@ var drawAll = function () {
   var displayResults = '';
   
   allItems.forEach(function(elem , index) {
-    displayResults += `<p class="results__acapit"><span>${elem.value}(${elem.type})</span><img src="present.svg" alt="present"><img src="arrow.svg" alt="arrow"><span> ${results[index].value}(${results[index].type})</span></p>`;
+    if(results[index].type ){
+      elem.type ? (displayResults +=  `<p class="results__acapit"><span>${elem.value}(${elem.type})</span><img src="present.svg" alt="present"><img src="arrow.svg" alt="arrow"><span> ${results[index].value} (${results[index].type})</span></p>`) : displayResults +=  `<p class="results__acapit"><span>${elem.value}</span><img src="present.svg" alt="present"><img src="arrow.svg" alt="arrow"><span> ${results[index].value} (${results[index].type})</span></p>`      
+    } else if (!results[index].type){
+      elem.type ? (displayResults +=  `<p class="results__acapit"><span>${elem.value}(${elem.type})</span><img src="present.svg" alt="present"><img src="arrow.svg" alt="arrow"><span> ${results[index].value} </span></p>`) : displayResults +=  `<p class="results__acapit"><span>${elem.value}</span><img src="present.svg" alt="present"><img src="arrow.svg" alt="arrow"><span> ${results[index].value}</span></p>` 
+    }
+
   });
   resultContainer.innerHTML = displayResults;
 }
